@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abonika — শাড়ি, চাদর ও লাইফস্টাইল</title>
+<meta name="description" content="Abonika — সুন্দর ডিজাইনের চাদর ও লাইফস্টাইল পণ্য।">
+<style>
+:root{--ink:#231c26;--muted:#766c78;--pink:#f8e9ef;--rose:#a33f66;--cream:#fffaf7;--line:#eee4e8;--green:#276749}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;color:var(--ink);background:#fff}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}
+.top{background:#2d2029;color:#fff;text-align:center;padding:9px 14px;font-size:13px}
+header{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1160px;margin:auto;padding:15px 22px;display:flex;align-items:center;gap:25px}
+.logo{font-family:Georgia,serif;font-size:28px;font-weight:700;letter-spacing:1px;color:var(--rose)}.logo small{display:block;font:10px system-ui;letter-spacing:3px;color:var(--muted);margin-top:-4px}
+.links{display:flex;gap:22px;margin-left:auto;font-size:14px}.navbtn{background:var(--rose);color:white;border-radius:999px;padding:11px 17px;font-size:13px}
+.hero{background:linear-gradient(115deg,#fff5f8,#f8e7ed 55%,#f2d7e1);overflow:hidden}
+.hero-in{max-width:1160px;margin:auto;padding:70px 22px 66px;display:grid;grid-template-columns:1.05fr .95fr;gap:35px;align-items:center;min-height:440px}
+.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--rose);font-weight:700}
+h1{font-family:Georgia,"Noto Serif Bengali",serif;font-size:clamp(36px,5vw,60px);line-height:1.15;margin:16px 0}
+.hero p{color:#695c67;line-height:1.9;max-width:520px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.primary,.secondary{padding:13px 21px;border-radius:999px;font-weight:650;font-size:14px}.primary{background:var(--rose);color:#fff}.secondary{border:1px solid #d7a8ba;background:#fff8}
+.hero-art{min-height:300px;border-radius:48% 48% 18px 18px;background:linear-gradient(140deg,#d7a3b7,#f9e4ec 55%,#c67c9b);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid #ffffff90;border-radius:50%;width:270px;height:270px}.hero-art:after{width:210px;height:210px}
+.fabric{font-size:110px;filter:drop-shadow(0 12px 12px #72334b33);z-index:1}
+.art-label{position:absolute;bottom:18px;background:#fffdf4e8;padding:10px 16px;border-radius:999px;font-family:Georgia,serif;font-size:14px;z-index:2}
+.wrap{max-width:1160px;margin:auto;padding:60px 22px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:27px}.section-head h2{font-size:30px;margin:7px 0 0;font-family:Georgia,"Noto Serif Bengali",serif}.section-head p{color:var(--muted);margin:8px 0 0;font-size:14px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.product{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:white;transition:.2s}.product:hover{transform:translateY(-4px);box-shadow:0 12px 30px #3c1c2b10}
+.prod-img{height:220px;display:grid;place-items:center;background:linear-gradient(135deg,#f7e7ed,#fff8f4);font-size:64px;position:relative}.prod-img img{width:100%;height:100%;object-fit:cover}.tag{position:absolute;left:12px;top:12px;background:white;border-radius:999px;padding:5px 9px;font-size:11px;color:var(--rose)}
+.prod-info{padding:16px}.prod-info h3{font-size:16px;margin:0 0 7px}.desc{color:var(--muted);font-size:12px;min-height:20px}.price-row{display:flex;justify-content:space-between;align-items:center;margin-top:15px;gap:8px}.price{font-size:19px;font-weight:750}.buy{background:var(--ink);color:white;border-radius:999px;padding:9px 12px;font-size:12px}
+.empty{grid-column:1/-1;padding:35px;text-align:center;border:1px dashed var(--line);border-radius:15px;color:var(--muted)}
+.benefits{background:var(--cream);border-block:1px solid var(--line)}.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.benefit{padding:24px;border:1px solid var(--line);border-radius:16px;background:#fff}.benefit b{display:block;margin:10px 0 6px}.benefit p{color:var(--muted);font-size:13px;line-height:1.7;margin:0}.ico{font-size:26px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.about-card{background:#f7e7ed;border-radius:22px;padding:35px}.about-card h2{font-family:Georgia,serif;font-size:32px}.about p{color:var(--muted);line-height:1.9}
+footer{background:#2d2029;color:#fff;padding:38px 22px}.foot{max-width:1160px;margin:auto;display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.foot p{color:#d9cbd3;font-size:13px}.foot a{color:#fff}
+.admin-fab{position:fixed;right:16px;bottom:16px;z-index:20;background:#2d2029;color:#fff;border-radius:999px;padding:12px 16px;box-shadow:0 5px 20px #0002;font-size:12px}
+.modal{position:fixed;inset:0;background:#1c121bcc;z-index:30;display:none;align-items:center;justify-content:center;padding:15px}.modal.open{display:flex}.panel{background:white;border-radius:20px;padding:23px;width:min(560px,100%);max-height:90vh;overflow:auto}.panel h2{margin:0 0 6px}.hint{font-size:12px;color:var(--muted);line-height:1.6}.field{display:grid;gap:6px;margin:13px 0}.field label{font-size:13px;font-weight:650}.field input,.field textarea,.field select{width:100%;border:1px solid #ddd0d8;border-radius:10px;padding:11px;background:#fff}.form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn-muted{background:#f5edf1;padding:11px 15px;border-radius:10px}.manage-list{display:grid;gap:8px;margin-top:16px}.manage-item{display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:13px}.delete{background:#ffe7e7;color:#a11;padding:7px 10px;border-radius:8px}
+@media(max-width:850px){.hero-in{grid-template-columns:1fr;padding-top:48px}.hero-art{min-height:250px}.products{grid-template-columns:repeat(2,1fr)}.prod-img{height:190px}.links{gap:12px}.about{grid-template-columns:1fr}}
+@media(max-width:520px){.nav{padding:12px 15px;gap:12px}.logo{font-size:24px}.links{display:none}.navbtn{margin-left:auto;padding:10px 13px}.wrap{padding:42px 15px}.products{gap:11px}.prod-img{height:150px;font-size:45px}.prod-info{padding:12px}.prod-info h3{font-size:14px}.price{font-size:16px}.buy{padding:8px 9px}.benefit-grid{grid-template-columns:1fr}.hero-in{padding:42px 17px}.section-head h2{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="top">বাংলাদেশজুড়ে ডেলিভারি • আপনার পছন্দের ডিজাইন, যত্নে বাছাই করা</div>
+<header><nav class="nav"><a class="logo" href="#">ABONIKA<small>STYLE • COMFORT • YOU</small></a><div class="links"><a href="#home">হোম</a><a href="#products">পণ্য</a><a href="#about">আমাদের সম্পর্কে</a><a href="#contact">যোগাযোগ</a></div><a class="navbtn" href="#products">পণ্য দেখুন ↗</a></nav></header>
+<main>
+<section class="hero" id="home"><div class="hero-in"><div><div class="eyebrow">আপনার প্রতিদিনের সৌন্দর্য</div><h1>স্টাইলে থাকুন,<br>থাকুন <span style="color:var(--rose)">Abonika</span>-র সাথে</h1><p>সুন্দর ডিজাইন, আরামদায়ক কাপড় আর আপনার পছন্দের রঙ—সবকিছু এক জায়গায়। আপনার পছন্দের চাদর খুঁজে নিন সহজেই।</p><div class="actions"><a class="primary" href="#products">কালেকশন দেখুন</a><a class="secondary" href="#contact">যোগাযোগ করুন</a></div></div><div class="hero-art"><div class="fabric">✿</div><div class="art-label">Made with care, chosen for you</div></div></div></section>
+<section class="wrap" id="products"><div class="section-head"><div><div class="eyebrow">আমাদের কালেকশন</div><h2>পছন্দের পণ্য</h2><p>আপনার স্টাইলের সঙ্গে মানানসই ডিজাইন বেছে নিন।</p></div><span id="product-count" class="hint"></span></div><div class="products" id="product-grid"></div></section>
+<section class="benefits"><div class="wrap"><div class="section-head"><div><div class="eyebrow">কেন Abonika?</div><h2>কেনাকাটা হোক নিশ্চিন্তে</h2></div></div><div class="benefit-grid"><div class="benefit"><div class="ico">✦</div><b>বাছাই করা ডিজাইন</b><p>রুচিশীল ও সুন্দর ডিজাইনের পণ্য, আপনার দৈনন্দিন ব্যবহারের জন্য।</p></div><div class="benefit"><div class="ico">📦</div><b>সহজ অর্ডার</b><p>WhatsApp-এ পণ্যের নাম জানিয়ে সহজেই অর্ডার করতে পারবেন।</p></div><div class="benefit"><div class="ico">♡</div><b>যত্নসহকারে সেবা</b><p>পণ্য সম্পর্কে জানতে বা সাহায্য পেতে সরাসরি আমাদের সঙ্গে কথা বলুন।</p></div></div></div></section>
+<section class="wrap about" id="about"><div class="about-card"><div class="eyebrow">আমাদের গল্প</div><h2>ছোট ছোট পছন্দেই বিশেষত্ব</h2><p>Abonika-তে আমরা আপনার পছন্দকে গুরুত্ব দিই। সুন্দর ডিজাইন ও সহজ কেনাকাটার অভিজ্ঞতা দেওয়াই আমাদের লক্ষ্য।</p></div><div><div class="eyebrow">Abonika online store</div><h2>আপনার পছন্দ, আমাদের যত্ন</h2><p>নতুন পণ্য, দাম ও ডিজাইন জানতে আমাদের সঙ্গে যোগাযোগ করুন। প্রতিটি পণ্যের বিস্তারিত জানতে পণ্যের নিচের অর্ডার বাটনে চাপ দিন।</p><a class="primary" href="#products">পণ্য দেখতে ফিরে যান</a></div></section>
+</main>
+<footer id="contact"><div class="foot"><div><a class="logo" style="color:white" href="#">ABONIKA</a><p>Style • Comfort • You</p></div><div><b>যোগাযোগ</b><p>WhatsApp: আপনার নম্বর যোগ করুন</p><p>Facebook: আপনার পেজের লিংক যোগ করুন</p></div><div><b>কাস্টমার সাপোর্ট</b><p>অর্ডার বা পণ্য সম্পর্কে জানতে মেসেজ দিন।</p><p>© <span id="year"></span> Abonika</p></div></div></footer>
+<button class="admin-fab" onclick="openAdmin()">⚙ পণ্য ম্যানেজ করুন</button>
+<div class="modal" id="admin-modal"><div class="panel"><div style="display:flex;justify-content:space-between;gap:15px;align-items:center"><div><h2>পণ্য ম্যানেজার</h2><div class="hint">নতুন পণ্য যোগ করুন বা তালিকা থেকে মুছুন।</div></div><button class="btn-muted" onclick="closeAdmin()">বন্ধ ✕</button></div>
+<p class="hint" style="background:#fff4df;padding:10px;border-radius:10px">গুরুত্বপূর্ণ: এই সহজ সংস্করণে পরিবর্তন শুধু এই ব্রাউজার/ডিভাইসে সেভ হবে। সব ক্রেতার সাইটে স্থায়ীভাবে পণ্য যোগ/মুছতে Firebase বা অন্য অনলাইন ডাটাবেস সংযোগ করতে হবে।</p>
+<form id="product-form"><div class="field"><label>পণ্যের নাম</label><input id="p-name" required placeholder="যেমন: Single Flower Design"></div><div class="field"><label>দাম (টাকা)</label><input id="p-price" required type="number" min="0" placeholder="899"></div><div class="field"><label>পণ্যের ছবি URL (ঐচ্ছিক)</label><input id="p-image" placeholder="https://..."></div><div class="field"><label>ছোট বিবরণ (ঐচ্ছিক)</label><input id="p-desc" placeholder="নরম কাপড়, সুন্দর ডিজাইন"></div><div class="field"><label>বারকোড / কোড (ঐচ্ছিক)</label><input id="p-code" placeholder="AN20016"></div><div class="form-actions"><button class="primary" type="submit">+ পণ্য যোগ করুন</button><button class="btn-muted" type="button" onclick="exportProducts()">পণ্যের ব্যাকআপ ডাউনলোড</button></div></form><h3 style="margin-top:22px">বর্তমান পণ্য</h3><div class="manage-list" id="manage-list"></div></div></div>
+<script>
+const starterProducts=[
+{id:1,name:"Single Flower Design",price:899,image:"",desc:"সুন্দর ফুলের ডিজাইনের চাদর",code:"AN20016",tag:"জনপ্রিয়"},
+{id:2,name:"Classic Floral",price:799,image:"",desc:"রুচিশীল ও আরামদায়ক ডিজাইন",code:"AN20017",tag:"নতুন"},
+{id:3,name:"Soft Everyday",price:699,image:"",desc:"প্রতিদিনের ব্যবহারের জন্য",code:"AN20018",tag:""},
+{id:4,name:"Premium Pattern",price:999,image:"",desc:"আকর্ষণীয় প্রিমিয়াম ডিজাইন",code:"AN20019",tag:"প্রিমিয়াম"}
+];
+let products;
+try{products=JSON.parse(localStorage.getItem("abonika_products"))||starterProducts}catch(e){products=starterProducts}
+const money=n=>"৳"+Number(n).toLocaleString("en-BD");
+function save(){localStorage.setItem("abonika_products",JSON.stringify(products));render()}
+function render(){const grid=document.getElementById("product-grid");document.getElementById("product-count").textContent=products.length+"টি পণ্য";if(!products.length){grid.innerHTML='<div class="empty">এখনো কোনো পণ্য নেই। ⚙ পণ্য ম্যানেজ করুন বাটনে চাপ দিয়ে যোগ করুন।</div>'}else{grid.innerHTML=products.map(p=>`<article class="product"><div class="prod-img">${p.image?`<img src="${esc(p.image)}" alt="${esc(p.name)}" onerror="this.style.display='none'">`:'<span>✿</span>'}${p.tag?`<span class="tag">${esc(p.tag)}</span>`:''}</div><div class="prod-info"><h3>${esc(p.name)}</h3><div class="desc">${esc(p.desc||p.code||"Abonika collection")}</div><div class="price-row"><span class="price">${money(p.price)}</span><button class="buy" onclick="orderProduct(${p.id})">অর্ডার করুন ↗</button></div></div></article>`).join("")}
+const list=document.getElementById("manage-list");list.innerHTML=products.length?products.map(p=>`<div class="manage-item"><span><b>${esc(p.name)}</b><br>${money(p.price)} · ${esc(p.code||"কোড নেই")}</span><button class="delete" onclick="deleteProduct(${p.id})">মুছুন</button></div>`).join(""):'<div class="hint">কোনো পণ্য নেই।</div>'}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function openAdmin(){document.getElementById("admin-modal").classList.add("open")}function closeAdmin(){document.getElementById("admin-modal").classList.remove("open")}
+function deleteProduct(id){if(confirm("এই পণ্যটি মুছে ফেলবেন?")){products=products.filter(p=>p.id!==id);save()}}
+document.getElementById("product-form").addEventListener("submit",e=>{e.preventDefault();products.unshift({id:Date.now(),name:document.getElementById("p-name").value.trim(),price:Number(document.getElementById("p-price").value),image:document.getElementById("p-image").value.trim(),desc:document.getElementById("p-desc").value.trim(),code:document.getElementById("p-code").value.trim(),tag:""});save();e.target.reset();alert("পণ্য যোগ হয়েছে।");});
+function orderProduct(id){const p=products.find(x=>x.id===id);const msg=encodeURIComponent(`আসসালামু আলাইকুম, আমি ${p.name} অর্ডার করতে চাই। দাম: ${money(p.price)}${p.code?" | কোড: "+p.code:""}`);const phone="";if(!phone){alert("WhatsApp অর্ডার চালু করতে HTML ফাইলে script-এর phone ভেরিয়েবলে আপনার WhatsApp নম্বর দিন (দেশের কোডসহ, + ছাড়া)।");return}window.open("https://wa.me/"+phone+"?text="+msg,"_blank")}
+function exportProducts(){const blob=new Blob([JSON.stringify(products,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="abonika-products-backup.json";a.click();URL.revokeObjectURL(a.href)}
+document.getElementById("year").textContent=new Date().getFullYear();render();
+</script></body></html>
