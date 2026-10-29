@@ -1,36 +1,287 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Abonika | Home Living</title>
-<style>
-:root{--green:#234b3e;--rose:#b87970;--cream:#fbf8f3;--ink:#292b27;--line:#e9e0d6}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,'Noto Serif Bengali',serif}a{color:inherit;text-decoration:none}button{cursor:pointer;border:0;border-radius:3px;padding:12px 18px;background:var(--green);color:white;font:inherit}input,select,textarea{width:100%;padding:12px;border:1px solid var(--line);background:#fff;margin:7px 0 14px;font:inherit;border-radius:3px}header{background:#fff;position:sticky;top:0;z-index:5;border-bottom:1px solid var(--line)}.top{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:13px 20px;gap:15px}.brand{display:flex;align-items:center;gap:9px;font-size:25px;color:var(--green);font-weight:bold}.brand img{width:45px;height:45px;object-fit:contain}.nav{display:flex;gap:25px;align-items:center;font:14px Arial}.nav a:hover{color:var(--rose)}.hero{background:#eee5db;padding:55px 20px}.hero-in{max-width:1150px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px}.hero h1{font-size:clamp(35px,5vw,62px);line-height:1.1;margin:0;color:var(--green)}.hero p{max-width:500px;line-height:1.8}.hero .art{font-size:120px}.wrap{max-width:1150px;margin:auto;padding:30px 20px}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.section-title h2{font-size:30px;color:var(--green);margin:0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.card{background:white;border:1px solid var(--line)}.card img{width:100%;height:260px;object-fit:cover;background:#eee}.cardbody{padding:15px}.card h3{margin:0 0 8px}.price{font:bold 18px Arial;color:var(--rose)}.muted{color:#777;font:13px Arial}.page{display:none;min-height:60vh}.page.active{display:block}.banner{background:white;padding:24px;border:1px solid var(--line)}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.line{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:12px 0;gap:10px}.adminlist{margin-top:15px}.adminrow{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:10px;gap:12px}.danger{background:#a33}.upload{border:2px dashed var(--rose);padding:16px;background:#fff8f5;margin:8px 0 14px}.upload img{max-width:150px;max-height:150px;display:none}.footer{background:#18392f;color:#fff;padding:35px;text-align:center}.badge{font:12px Arial;color:var(--rose)}@media(max-width:700px){.top{flex-wrap:wrap}.nav{gap:13px;flex-wrap:wrap}.hero-in{display:block}.hero .art{font-size:75px}.two{grid-template-columns:1fr}}
-</style></head><body>
-<header><div class="top"><a class="brand" href="#" onclick="go('home')"><img src="assets/abonika-logo.png" alt="Abonika logo">ABONIKA</a><nav class="nav"><a href="#" onclick="go('home')">Home</a><a href="#" onclick="go('shop')">Shop</a><a href="#" onclick="go('categories')">Categories⌄</a><a href="#" onclick="go('about')">About</a><a href="#" onclick="go('contact')">Contact</a><a href="#" onclick="go('account')">Account</a><a href="#" onclick="go('cart')">Cart (<span id="count">0</span>)</a><a href="#" onclick="admin()">Admin</a></nav></div></header>
-<div id="home" class="page active"><div class="hero"><div class="hero-in"><div><span class="badge">HOME • BED • COMFORT</span><h1>Make your home<br>feel beautiful.</h1><p>ঘরের আরাম ও সৌন্দর্যের জন্য পছন্দের চাদর এবং বেডশিট বেছে নিন Abonika থেকে।</p><button onclick="go('shop')">Shop collection →</button></div><div class="art">🛏️</div></div></div><div class="wrap"><div class="section-title"><h2>Featured Collection</h2><a onclick="go('shop')">View all →</a></div><div class="cards" id="featured"></div></div></div>
-<div id="shop" class="page"><div class="wrap"><div class="section-title"><h2>Shop All</h2><select style="width:180px" onchange="filterCat(this.value)"><option value="">All categories</option><option>Bedsheet</option><option>Chador</option></select></div><div class="cards" id="shopcards"></div></div></div>
-<div id="categories" class="page"><div class="wrap"><h2>Categories</h2><div class="cards"><div class="banner"><h3>Bedsheets</h3><button onclick="filterCat('Bedsheet');go('shop')">Explore</button></div><div class="banner"><h3>Chador</h3><button onclick="filterCat('Chador');go('shop')">Explore</button></div></div></div></div>
-<div id="about" class="page"><div class="wrap"><h2>About Abonika</h2><div class="banner"><p>Abonika brings cozy, beautiful bed sheets and chador to your home. We focus on comfort, quality and thoughtful design.</p></div></div></div>
-<div id="contact" class="page"><div class="wrap"><h2>Contact</h2><div class="banner"><p>Dhaka, Bangladesh 1209</p><p>Phone: 01883-051114</p><p>Email: abonika.bd@gmail.com</p><a href="https://www.tiktok.com/@abonika180">TikTok @abonika180</a></div></div></div>
-<div id="account" class="page"><div class="wrap"><h2>Customer Account</h2><div class="banner"><p>Login or create an account on this browser to keep your cart.</p><form id="accountForm"><label>Name</label><input name="name" required><label>Phone</label><input name="phone" required><button>Save account</button></form><p id="accountmsg"></p></div></div></div>
-<div id="cart" class="page"><div class="wrap"><h2>Your Cart</h2><div class="banner"><div id="cartitems"></div><div class="line"><b>Total</b><b id="total">৳0</b></div><button onclick="go('checkout')">Checkout</button></div></div></div>
-<div id="checkout" class="page"><div class="wrap"><h2>Place Order</h2><div class="banner"><form id="checkoutForm"><label>Name *</label><input name="name" required><label>Phone *</label><input name="phone" required><label>Address *</label><textarea name="address" required></textarea><label>Payment *</label><select name="payment"><option>Cash on Delivery</option><option>বিকাশ</option><option>নগদ</option></select><label>Transaction ID (optional)</label><input name="trx"><label>Note</label><textarea name="note"></textarea><button>Place order</button></form></div></div></div>
-<div id="adminpage" class="page"><div class="wrap"><h2>Store Admin</h2><div class="banner"><button onclick="adminLogin()">Login</button><div id="admincontent" style="display:none"><h3>Add Product</h3><form id="productForm"><label>Product name</label><input name="name" required><label>Price (৳)</label><input name="price" type="number" required><label>Image upload</label><div class="upload"><input name="image" type="file" accept="image/*" required onchange="preview(this)"><img id="preview"></div><label>Category</label><select name="category"><option>Bedsheet</option><option>Chador</option></select><label>Description</label><textarea name="description"></textarea><button>Add product</button></form><h3>Manage Products</h3><div id="adminproducts"></div><h3>Orders</h3><div id="orders">Backend connection required to view live orders.</div></div></div></div></div>
-<div class="footer">ABONIKA • Dhaka, Bangladesh • 01883-051114 • abonika.bd@gmail.com</div>
 <script>
-const initial=[{id:'p1',name:'Bed Home',price:890,category:'Bedsheet',description:'Soft everyday comfort',image:'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80'},{id:'p2',name:'Floral Garden Bedsheet',price:899,category:'Bedsheet',description:'Floral design',image:'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80'},{id:'p3',name:'Sage Bloom Bed Set',price:1299,category:'Bedsheet',description:'Calm and elegant',image:'https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=800&q=80'},{id:'p4',name:'Classic Stripe Collection',price:999,category:'Bedsheet',description:'Classic stripes',image:'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80'},{id:'p5',name:'Pastel Rose Bedsheet',price:1099,category:'Bedsheet',description:'Pastel rose pattern',image:'https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=800&q=80'}];
-let products=JSON.parse(localStorage.getItem('ab_products')||'null')||initial,cart=JSON.parse(localStorage.getItem('ab_cart')||'{}'),filter='';
-function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));let el=document.getElementById(id);if(el)el.classList.add('active');if(id==='cart')renderCart();if(id==='shop')renderShop();window.scrollTo(0,0)}
-function card(p){return `<div class="card"><img src="${p.image}" alt="${p.name}"><div class="cardbody"><h3>${p.name}</h3><div class="price">৳${Number(p.price).toLocaleString()}</div><p class="muted">${p.description||''}</p><button onclick="add('${p.id}')">Add to cart</button></div></div>`}
-function renderShop(){let list=products.filter(p=>!filter||p.category===filter);document.getElementById('shopcards').innerHTML=list.map(card).join('')}
-function filterCat(c){filter=c;renderShop()}
-function renderFeatured(){document.getElementById('featured').innerHTML=products.slice(0,4).map(card).join('')}
-function add(id){cart[id]=(cart[id]||0)+1;localStorage.setItem('ab_cart',JSON.stringify(cart));document.getElementById('count').textContent=Object.values(cart).reduce((a,b)=>a+b,0);alert('Added to cart')}
-function renderCart(){let rows=Object.entries(cart).map(([id,q])=>{let p=products.find(x=>x.id===id);return p?{p,q}:null}).filter(Boolean);document.getElementById('cartitems').innerHTML=rows.length?rows.map(({p,q})=>`<div class="line"><span>${p.name} × ${q} <button onclick="qty('${p.id}',-1)">−</button> <button onclick="qty('${p.id}',1)">+</button></span><b>৳${p.price*q}</b></div>`).join(''):'Cart is empty';document.getElementById('total').textContent='৳'+rows.reduce((a,x)=>a+x.p.price*x.q,0);document.getElementById('count').textContent=rows.reduce((a,x)=>a+x.q,0)}
-function qty(id,n){cart[id]=Math.max(0,(cart[id]||0)+n);if(!cart[id])delete cart[id];localStorage.setItem('ab_cart',JSON.stringify(cart));renderCart()}
-document.getElementById('accountForm').onsubmit=e=>{e.preventDefault();localStorage.setItem('ab_account',JSON.stringify(Object.fromEntries(new FormData(e.target).entries())));document.getElementById('accountmsg').textContent='Account details saved on this browser.'}
-document.getElementById('checkoutForm').onsubmit=e=>{e.preventDefault();if(!Object.keys(cart).length)return alert('Cart empty');let d=Object.fromEntries(new FormData(e.target).entries());d.items=Object.entries(cart).map(([id,q])=>({product:products.find(p=>p.id===id)?.name,quantity:q}));let orders=JSON.parse(localStorage.getItem('ab_orders')||'[]');d.id='AB'+Date.now();d.created=new Date().toLocaleString();orders.push(d);localStorage.setItem('ab_orders',JSON.stringify(orders));alert('Demo order saved in this browser. Live email/database needs backend setup.');cart={};localStorage.setItem('ab_cart','{}');e.target.reset();go('home')}
-function preview(i){let f=i.files[0],im=document.getElementById('preview');if(f&&f.type.startsWith('image/')&&f.size<5*1024*1024){im.src=URL.createObjectURL(f);im.style.display='block'}else{alert('Choose image under 5MB');i.value=''}}
-function admin(){go('adminpage')}
-function adminLogin(){let pass=prompt('Admin password');if(pass==='abonika2026'){document.getElementById('admincontent').style.display='block';renderAdmin()}else alert('Wrong password')}
-document.getElementById('productForm').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target),file=f.get('image');if(!file||!file.size)return alert('Select image');let reader=new FileReader();reader.onload=()=>{products.unshift({id:'p'+Date.now(),name:f.get('name'),price:Number(f.get('price')),image:reader.result,category:f.get('category'),description:f.get('description')});try{localStorage.setItem('ab_products',JSON.stringify(products));renderAdmin();renderFeatured();alert('Product added')}catch(err){alert('Image too large for browser storage. Use smaller image or connect backend.')};e.target.reset();document.getElementById('preview').style.display='none'};reader.readAsDataURL(file)}
-function renderAdmin(){document.getElementById('adminproducts').innerHTML=products.map(p=>`<div class="adminrow">${p.name} • ৳${p.price}<button class="danger" onclick="del('${p.id}')">Delete</button></div>`).join('');document.getElementById('orders').innerHTML=(JSON.parse(localStorage.getItem('ab_orders')||'[]').reverse().map(o=>`<div class="adminrow">${o.id} • ${o.name} • ${o.phone} • ${o.payment}</div>`).join('')||'No local demo orders')}
-function del(id){products=products.filter(p=>p.id!==id);localStorage.setItem('ab_products',JSON.stringify(products));renderAdmin();renderFeatured()}
-renderFeatured();renderShop();renderCart();
-</script></body></html>
+const API_URL = "https://abonika-api.anik-bsl2010.workers.dev";
+
+const initial = [
+  {id:"p1",name:"Bed Home",price:890,category:"Bedsheet",description:"Soft everyday comfort",image:"https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80"},
+  {id:"p2",name:"Floral Garden Bedsheet",price:899,category:"Bedsheet",description:"Floral design",image:"https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80"},
+  {id:"p3",name:"Sage Bloom Bed Set",price:1299,category:"Bedsheet",description:"Calm and elegant",image:"https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=800&q=80"},
+  {id:"p4",name:"Classic Stripe Collection",price:999,category:"Bedsheet",description:"Classic stripes",image:"https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80"},
+  {id:"p5",name:"Pastel Rose Bedsheet",price:1099,category:"Bedsheet",description:"Pastel rose pattern",image:"https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=800&q=80"}
+];
+
+let products = initial;
+let cart = JSON.parse(localStorage.getItem("ab_cart") || "{}");
+let filter = "";
+
+async function loadProducts() {
+  try {
+    const response = await fetch(API_URL + "/products");
+    if (!response.ok) throw new Error("API error");
+
+    const data = await response.json();
+
+    if (Array.isArray(data) && data.length > 0) {
+      products = data.map(p => ({
+        ...p,
+        price: Number(p.price)
+      }));
+    } else {
+      products = initial;
+    }
+  } catch (error) {
+    console.error("Product load error:", error);
+    products = initial;
+  }
+
+  renderFeatured();
+  renderShop();
+  renderCart();
+  renderAdmin();
+}
+
+function go(id) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  let el = document.getElementById(id);
+  if (el) el.classList.add("active");
+
+  if (id === "cart") renderCart();
+  if (id === "shop") renderShop();
+
+  window.scrollTo(0, 0);
+}
+
+function card(p) {
+  return `
+    <div class="card">
+      <img src="${p.image}" alt="${p.name}">
+      <div class="cardbody">
+        <h3>${p.name}</h3>
+        <div class="price">৳${Number(p.price).toLocaleString()}</div>
+        <p class="muted">${p.description || ""}</p>
+        <button onclick="add('${p.id}')">Add to cart</button>
+      </div>
+    </div>`;
+}
+
+function renderShop() {
+  let list = products.filter(p => !filter || p.category === filter);
+  document.getElementById("shopcards").innerHTML = list.map(card).join("");
+}
+
+function filterCat(c) {
+  filter = c;
+  renderShop();
+}
+
+function renderFeatured() {
+  document.getElementById("featured").innerHTML =
+    products.slice(0, 4).map(card).join("");
+}
+
+function add(id) {
+  cart[id] = (cart[id] || 0) + 1;
+  localStorage.setItem("ab_cart", JSON.stringify(cart));
+  renderCart();
+  alert("Added to cart");
+}
+
+function renderCart() {
+  let rows = Object.entries(cart).map(([id,q]) => {
+    let p = products.find(x => x.id == id);
+    return p ? {p,q} : null;
+  }).filter(Boolean);
+
+  document.getElementById("cartitems").innerHTML = rows.length
+    ? rows.map(({p,q}) => `
+      <div class="line">
+        <span>${p.name} × ${q}
+          <button onclick="qty('${p.id}',-1)">−</button>
+          <button onclick="qty('${p.id}',1)">+</button>
+        </span>
+        <b>৳${p.price*q}</b>
+      </div>`).join("")
+    : "Cart is empty";
+
+  document.getElementById("total").textContent =
+    "৳" + rows.reduce((a,x) => a + x.p.price*x.q, 0);
+
+  document.getElementById("count").textContent =
+    rows.reduce((a,x) => a + x.q, 0);
+}
+
+function qty(id,n) {
+  cart[id] = Math.max(0, (cart[id] || 0) + n);
+  if (!cart[id]) delete cart[id];
+
+  localStorage.setItem("ab_cart", JSON.stringify(cart));
+  renderCart();
+}
+
+document.getElementById("accountForm").onsubmit = e => {
+  e.preventDefault();
+
+  localStorage.setItem(
+    "ab_account",
+    JSON.stringify(Object.fromEntries(new FormData(e.target).entries()))
+  );
+
+  document.getElementById("accountmsg").textContent =
+    "Account details saved on this browser.";
+};
+
+document.getElementById("checkoutForm").onsubmit = e => {
+  e.preventDefault();
+
+  if (!Object.keys(cart).length) return alert("Cart empty");
+
+  let d = Object.fromEntries(new FormData(e.target).entries());
+
+  d.items = Object.entries(cart).map(([id,q]) => ({
+    product: products.find(p => p.id == id)?.name,
+    quantity: q
+  }));
+
+  let orders = JSON.parse(localStorage.getItem("ab_orders") || "[]");
+
+  d.id = "AB" + Date.now();
+  d.created = new Date().toLocaleString();
+
+  orders.push(d);
+
+  localStorage.setItem("ab_orders", JSON.stringify(orders));
+
+  alert("Demo order saved in this browser.");
+
+  cart = {};
+  localStorage.setItem("ab_cart", "{}");
+
+  e.target.reset();
+  go("home");
+};
+
+function preview(i) {
+  let f = i.files[0];
+  let im = document.getElementById("preview");
+
+  if (f && f.type.startsWith("image/") && f.size < 5*1024*1024) {
+    im.src = URL.createObjectURL(f);
+    im.style.display = "block";
+  } else {
+    alert("Choose image under 5MB");
+    i.value = "";
+  }
+}
+
+function admin() {
+  go("adminpage");
+}
+
+function adminLogin() {
+  let pass = prompt("Admin password");
+
+  if (pass === "abonika2026") {
+    document.getElementById("admincontent").style.display = "block";
+    renderAdmin();
+  } else {
+    alert("Wrong password");
+  }
+}
+
+document.getElementById("productForm").onsubmit = async e => {
+  e.preventDefault();
+
+  let f = new FormData(e.target);
+  let file = f.get("image");
+
+  if (!file || !file.size) return alert("Select image");
+
+  if (file.size >= 5*1024*1024) {
+    return alert("Choose image under 5MB");
+  }
+
+  let reader = new FileReader();
+
+  reader.onload = async () => {
+    let product = {
+      id: "p" + Date.now(),
+      name: f.get("name"),
+      price: Number(f.get("price")),
+      image: reader.result,
+      category: f.get("category"),
+      description: f.get("description")
+    };
+
+    try {
+      let response = await fetch(API_URL + "/products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(product)
+      });
+
+      let result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || result.error || "Save failed");
+      }
+
+      await loadProducts();
+
+      e.target.reset();
+      document.getElementById("preview").style.display = "none";
+
+      alert("Product saved online!");
+    } catch (error) {
+      console.error(error);
+      alert("Product save failed: " + error.message);
+    }
+  };
+
+  reader.readAsDataURL(file);
+};
+
+function renderAdmin() {
+  document.getElementById("adminproducts").innerHTML =
+    products.map(p => `
+      <div class="adminrow">
+        ${p.name} • ৳${p.price}
+        <button class="danger" onclick="del('${p.id}')">Delete</button>
+      </div>
+    `).join("");
+
+  document.getElementById("orders").innerHTML =
+    (JSON.parse(localStorage.getItem("ab_orders") || "[]")
+      .reverse()
+      .map(o => `
+        <div class="adminrow">
+          ${o.id} • ${o.name} • ${o.phone} • ${o.payment}
+        </div>
+      `).join("") || "No local demo orders");
+}
+
+async function del(id) {
+  if (!confirm("Delete this product?")) return;
+
+  try {
+    let response = await fetch(
+      API_URL + "/products/" + encodeURIComponent(id),
+      { method: "DELETE" }
+    );
+
+    let result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(result.message || result.error || "Delete failed");
+    }
+
+    await loadProducts();
+    alert("Product deleted online!");
+  } catch (error) {
+    console.error(error);
+    alert("Delete failed: " + error.message);
+  }
+}
+
+loadProducts();
+</script>
